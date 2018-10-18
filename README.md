@@ -8,6 +8,8 @@ P.S. I had something crashing on my IDE when I tried to set the query edit text 
 
 Task undone:
  -All the Bonus task
+ 
+(Post Submission update on 2018/10/18 10:53am) -Just realized that I forgot to setup the infinite scrolling. The method is already set in the presenter , just needed to add a listener in the activity to track end of page and set a treshold value to ultimately call the getmoreData method.
 
 Time Tracking:
 -I am sharing a github url for the project, and that should allow you to view the different commit and see how long it took me to complete what I've done (Approx 3 hours)
