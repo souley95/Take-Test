@@ -3,7 +3,7 @@
 Functionality:
 
 - The app should start on the Query Activity, which allows you to tap what you are looking for and get redirected to the PhotosListActivity
-P.S. I had something crashing on my IDE when I tried to set the query edit text in the photoList supportBar, that's the reason why the    query is in a separate activity , so I can build the minimum. It would have definetly been more effcient having all components in one activity.
+P.S. I had something crashing on my IDE when I tried to set the query edit text in the photoList supportBar. That's the reason why the    query is in a separate activity , so I could finish the basic functionality. It would have definetly been more effcient having all components in one activity.
 
 
 Task undone:
