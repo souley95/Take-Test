@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.soulemane.affirmassignment.R;
 import com.example.soulemane.affirmassignment.adapter.PhotosAdapter;
 import com.example.soulemane.affirmassignment.model.Photo;
+import com.example.soulemane.affirmassignment.utils.SpaceItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +48,9 @@ public class PhotoListActivity extends AppCompatActivity implements PhotoItemCli
         photoArrayList = new ArrayList<>();
         photosAdapter = new PhotosAdapter(this,photoArrayList);
 
-        mLayoutManager = new StaggeredGridLayoutManager(3,1);
+        mLayoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
         rvPhotoList.setLayoutManager(mLayoutManager);
+        rvPhotoList.addItemDecoration(new SpaceItemDecoration(5));
         rvPhotoList.setAdapter(photosAdapter);
 
         rvLoading = findViewById(R.id.rv_loading);
