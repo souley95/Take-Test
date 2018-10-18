@@ -12,13 +12,11 @@ public class ApiClient {
     public static Retrofit getCLient(){
 
         if(retrofit == null){
-
             retrofit = new Retrofit.Builder()
                     .baseUrl(Constants.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
-
         return retrofit;
     }
 }
