@@ -1,1 +1,24 @@
 # AffirmAssignment
+
+Functionality:
+
+- The app should start on the Query Activity, which allows you to tap what you are looking for and get redirected to the PhotosListActivity
+P.S. I had something crashing on my IDE when I tried to set the query edit text in the photoList supportBar, that's the reason why the    query is in a separate activity , so I can build the minimum. It would have definetly been more effcient having all components in one activity.
+
+
+Task undone:
+ -All the Bonus task
+
+Time Tracking:
+-I am sharing a github url for the project, and that should allow you to view how long it took me to complete what I've done (Approx 3 hours)
+
+Personal Review.
+
+Great take home assigment. I lost about 20-25 min trying to figure out why the response body of my retrofit call was null, and ultimately I needed to track it down with an HttpInterceptor, something I've never used before.
+Besides that the whole implementation was done within 2:15h - 2:30h,and I used the rest of the time to review my code and try to fix the horizontal spacing in the RecyclerView.
+
+Thank you and I am Looking forward to talking more on this assignment and get some feedback.
+
+Library that I would have added if more time was allowed:
+RxJava
+EventBus
