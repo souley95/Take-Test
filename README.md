@@ -10,7 +10,7 @@ Task undone:
  -All the Bonus task
 
 Time Tracking:
--I am sharing a github url for the project, and that should allow you to view how long it took me to complete what I've done (Approx 3 hours)
+-I am sharing a github url for the project, and that should allow you to view the different commit and see how long it took me to complete what I've done (Approx 3 hours)
 
 Personal Review:
 
@@ -22,3 +22,6 @@ Thank you and I am Looking forward to talking more about this assignment and get
 Library that I would have added if more time was allowed:
 RxJava
 EventBus
+
+
+Github url : https://github.com/souley95/Take-Test
