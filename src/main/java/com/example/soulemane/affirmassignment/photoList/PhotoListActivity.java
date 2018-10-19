@@ -92,9 +92,6 @@ public class PhotoListActivity extends AppCompatActivity implements PhotoItemCli
                 }
             }
         });
-
-
-
     }
 
     @Override
