@@ -2,6 +2,7 @@ package com.example.soulemane.affirmassignment.photoList;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -24,10 +25,17 @@ public class PhotoListActivity extends AppCompatActivity implements PhotoItemCli
     private List<Photo> photoArrayList;
     private PhotosAdapter photosAdapter;
     private ProgressBar rvLoading;
-    private StaggeredGridLayoutManager mLayoutManager;
+    private GridLayoutManager mLayoutManager;
     private String search ;
 
     private int pageNo = 1 ;
+
+
+    //Constants for load more
+    private int previousTotal = 0;
+    private boolean loading = true;
+    private int visibleThreshold = 5;
+    int firstVisibleItem, visibleItemCount, totalItemCount;
 
 
     @Override
@@ -35,6 +43,7 @@ public class PhotoListActivity extends AppCompatActivity implements PhotoItemCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_list);
         initUI();
+        setListeners();
         search = getIntent().getExtras().getString("query");
 
         photoListPresenter = new PhotoListPresenter(this);
@@ -48,12 +57,43 @@ public class PhotoListActivity extends AppCompatActivity implements PhotoItemCli
         photoArrayList = new ArrayList<>();
         photosAdapter = new PhotosAdapter(this,photoArrayList);
 
-        mLayoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
+        mLayoutManager = new GridLayoutManager(this,3,GridLayoutManager.VERTICAL,false);
         rvPhotoList.setLayoutManager(mLayoutManager);
         rvPhotoList.addItemDecoration(new SpaceItemDecoration(5));
         rvPhotoList.setAdapter(photosAdapter);
 
         rvLoading = findViewById(R.id.rv_loading);
+
+    }
+
+    private void setListeners() {
+
+        rvPhotoList.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                visibleItemCount = rvPhotoList.getChildCount();
+                totalItemCount = mLayoutManager.getItemCount();
+                firstVisibleItem = mLayoutManager.findFirstVisibleItemPosition();
+
+                // Handling the infinite scroll
+                if (loading) {
+                    if (totalItemCount > previousTotal) {
+                        loading = false;
+                        previousTotal = totalItemCount;
+                    }
+                }
+                if (!loading && (totalItemCount - visibleItemCount)
+                        <= (firstVisibleItem + visibleThreshold)) {
+                    photoListPresenter.getMoreData(pageNo,search);
+                    loading = true;
+                }
+            }
+        });
+
+
 
     }
 

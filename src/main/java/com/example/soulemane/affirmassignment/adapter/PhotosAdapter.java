@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.example.soulemane.affirmassignment.R;
 import com.example.soulemane.affirmassignment.model.Photo;
@@ -44,6 +45,8 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.MyViewHold
     public void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, final int position) {
 
         Photo photo = photoList.get(position);
+        RequestOptions options = new RequestOptions();
+        options.centerCrop();
 
         Glide.with(listActivity)
                 .load(photo.getUrl())
@@ -60,6 +63,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.MyViewHold
                         return false;
                     }
                 })
+                .apply(options)
                 .into(myViewHolder.image);
 
         myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
