@@ -27,3 +27,6 @@ EventBus
 
 
 Github url : https://github.com/souley95/Take-Test
+
+
+UPDATE : Implemented Infinite scroll and better design of RecyclerView
