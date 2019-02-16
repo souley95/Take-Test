@@ -19,7 +19,6 @@ Personal Review:
 Great take home assigment. I lost about 20-25 min trying to figure out why the response body of my retrofit call was null, and ultimately I needed to track it down with an HttpInterceptor, something I've never used before.
 Besides that the whole implementation was done within 2:15h - 2:30h,and I used the rest of the time to review my code and try to fix the horizontal spacing in the RecyclerView.
 
-Thank you and I am Looking forward to talking more about this assignment and get some feedback.
 
 Library that I would have added if more time was allowed:
 RxJava
